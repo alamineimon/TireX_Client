@@ -17,6 +17,8 @@ const Register = (props) => {
 
    
     //  https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-alamineimon.git
+
+  
   const handleRegister = (data) => {
     setSignupError("");
     createUser(data.email, data.password)
@@ -163,8 +165,8 @@ const Register = (props) => {
             <select
               {...register("type")}
               className="select select-bordered w-full max-w-xs">
+              <option value='user'>Buyer</option>
               <option value='seller'>Seller</option>
-              <option value='user'>User</option>
             </select>
           </div>
           <div className="form-control w-full">

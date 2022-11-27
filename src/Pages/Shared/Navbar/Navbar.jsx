@@ -24,7 +24,7 @@ const Navbar = (props) => {
         <Link to="/blogs">Blogs</Link>
       </li>
       <li className="hover:bg-green-500 hover:rounded hover:text-white">
-        <Link>About</Link>
+        <Link to="/services">Services</Link>
       </li>
       {user?.uid ? (
         <>
@@ -45,16 +45,6 @@ const Navbar = (props) => {
           </li>
         </>
       )}
-    </React.Fragment>
-  );
-  const dashboardItems = (
-    <React.Fragment>
-      <li>
-        <Link>Admin</Link>
-      </li>
-      <li>
-        <Link>User</Link>
-      </li>
     </React.Fragment>
   );
 
@@ -95,30 +85,38 @@ const Navbar = (props) => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
 
-      <div className="dropdown">
-        <label tabIndex={2} className="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
-        </label>
-        <ul
-          tabIndex={1}
-          className="menu menu-compact dropdown-content mr-6 mt-3 p-2 shadow bg-base-100 rounded-box w-32 text-right"
+      {user?.uid ? (
+        <>
+          <li className="lg:hidden border-none btn bg-green-500 rounded text-white">
+            <button onClick={handleLogout}>Logout</button>
+          </li>
+        </>
+      ) : (
+        <>
+          
+        </>
+      )}
+
+      <label
+        htmlFor="dashboard-drawer"
+        tabIndex={2}
+        className="btn btn-ghost lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          {dashboardItems}
-        </ul>
-      </div>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </label>
     </div>
   );
 };
