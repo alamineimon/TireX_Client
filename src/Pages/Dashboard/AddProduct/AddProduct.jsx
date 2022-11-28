@@ -48,20 +48,19 @@ const handleAddProduct = data =>{
         console.log(product);
 
         // save the product to the mongodb 
-        fetch('http://localhost:5000/products', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json', 
-                        // authorization: bearer ${localStorage.getItem('accessToken')}
-                    },
-                    body: JSON.stringify(product)
-                })
-                .then(res => res.json())
-                .then(result =>{
-                    console.log(result);
-                    toast.success("Product added successfully")
-                    
-                })
+        fetch("http://localhost:5000/myservices", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            // authorization: bearer ${localStorage.getItem('accessToken')}
+          },
+          body: JSON.stringify(product),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            console.log(result);
+            toast.success("Product added successfully");
+          });
 
 
 
