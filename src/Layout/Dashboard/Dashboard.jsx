@@ -21,18 +21,7 @@ const Dashboard = (props) => {
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80  text-base-content">
     
-            <li>
-              <Link to="/dashboard">My Order</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/addproduct">Add Product</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/myproducts">My Products</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/allusers">Manage Users</Link>
-            </li>
+      
             {/* <li>
               <Link to="/dashboard">My Order</Link>
             </li>
