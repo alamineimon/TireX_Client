@@ -102,7 +102,7 @@ const ManageUser = (props) => {
             </tbody>
           </table>
         </div>
-        {/* {deleteProduct && (
+        {deleteProduct && (
           <ConfirmationModal
             successAction={handleManageBuyerSeller}
             modalData={deleteProduct}
@@ -110,7 +110,7 @@ const ManageUser = (props) => {
             title={`Sure you wanna Delete? `}
             message={`It's gone forever`}
           />
-        )} */}
+        )}
       </div>
     );
 }
