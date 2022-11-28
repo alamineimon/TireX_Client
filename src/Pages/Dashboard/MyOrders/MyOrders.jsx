@@ -24,22 +24,22 @@ const MyOrders = (props) => {
     setDeleteProduct(null);
   };
 
-  // const handleDelete = product =>{
-  //   fetch(`http://localhost:5000/bookings/${product._id}`,{
-  //       method: 'DELETE',
-  //       headers: {
+  const handleDelete = product =>{
+    fetch(`http://localhost:5000/bookings/${product._id}`,{
+        method: 'DELETE',
+        headers: {
 
-  //       }
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //       if(data.deletedCount > 0){
-  //           refetch()
-  //           toast.success(`${product?.name} order deleted successfully`)
-  //       }
-  //   })
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.deletedCount > 0){
+            refetch()
+            toast.success(`${product?.name} order deleted successfully`)
+        }
+    })
 
-  // }
+  }
 
   if (isLoading) {
     return <Spinner></Spinner>;
