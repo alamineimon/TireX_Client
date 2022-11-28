@@ -8,7 +8,7 @@ const Home =(props) => {
         <div>
             <Banner></Banner>
             <MenuSection></MenuSection>
-            {/* <Blogs></Blogs> */}
+            <Blogs></Blogs>
         </div>
     );
 }
