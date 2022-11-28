@@ -32,7 +32,7 @@ const Service = ({ service, setBikeInfo }) => {
             {mobile}
           </span>
         </p>
-        <p>{describe}</p>
+        {/* <p>{describe}</p> */}
         <p>Conditon: {condition}</p>
         <p>
           Price: {sellingPrice}{" "}
