@@ -5,7 +5,7 @@ const Blogs = (props) => {
     <section className="text-gray-400">
       <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
         <h2 className="mb-12 text-4xl text-black font-bold leading-none text-center sm:text-5xl">
-          Frequently Asked Questions
+          Interview Asked Questions
         </h2>
         <div className="flex flex-col text-left divide-y sm:px-8 lg:px-12 xl:px-32 ">
           <details>
