@@ -6,7 +6,7 @@ import MenuSection from './MenuSection/MenuSection';
 const Home =(props) => {
     return (
         <div>
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
             <MenuSection></MenuSection>
             <Blogs></Blogs>
         </div>
