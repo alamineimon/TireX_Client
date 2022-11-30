@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const CheckoutForm = ({ booking }) => {
-    const { sellingPrice, product_name, email, _id } = booking;
-    // const {user} = useContext(AuthContext)
+  const { sellingPrice, product_name, email, _id } = booking;
+  // const {user} = useContext(AuthContext)
   const stripe = useStripe();
   const elements = useElements();
   const [success, setSuccess] = useState("");
@@ -13,10 +13,9 @@ const CheckoutForm = ({ booking }) => {
   const [processing, setProcessing] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
 
-
-useEffect(() => {
+  useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch(`http://localhost:5000/create-payment-intent`, {
+    fetch(`https://server-nine-plum.vercel.app/create-payment-intent`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,12 +25,10 @@ useEffect(() => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setClientSecret(data.clientSecret)
+        setClientSecret(data.clientSecret);
         console.log(data.clientSecret);
       });
   }, [sellingPrice]);
-
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -62,7 +59,6 @@ useEffect(() => {
     setSuccess("");
     setProcessing(true);
 
-
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -73,7 +69,6 @@ useEffect(() => {
           },
         },
       });
-
 
     if (confirmError) {
       setCardError(confirmError.message);
@@ -90,11 +85,11 @@ useEffect(() => {
         bookingId: _id,
       };
 
-      fetch("http://localhost:5000/payments", {
+      fetch("https://server-nine-plum.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",
-        //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(payment),
       })

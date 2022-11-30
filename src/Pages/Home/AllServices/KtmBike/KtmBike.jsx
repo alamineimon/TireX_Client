@@ -15,13 +15,13 @@ const KtmBike = (props) => {
   } = useQuery({
     queryKey: ["ktmBike"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/ktm`);
+      const res = await fetch(`https://server-nine-plum.vercel.app/ktm`);
       const data = res.json();
       return data;
     },
   });
   if (isLoading) {
-    return <Spinner></Spinner>
+    return <Spinner></Spinner>;
   }
   return (
     <div className="lg:flex my-2 lg:w-full sm:block">

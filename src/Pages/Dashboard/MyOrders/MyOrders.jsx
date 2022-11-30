@@ -10,8 +10,12 @@ import ConfirmationModal from "../../Modal/ConfirmationModal/ConfirmationModal";
 const MyOrders = (props) => {
   const { user } = useContext(AuthContext);
   const [deleteProduct, setDeleteProduct] = useState(null);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
-  const { data: bookings = [],refetch, isLoading } = useQuery({
+  const url = `https://server-nine-plum.vercel.app/bookings?email=${user?.email}`;
+  const {
+    data: bookings = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(url);
@@ -24,22 +28,19 @@ const MyOrders = (props) => {
     setDeleteProduct(null);
   };
 
-  const handleDelete = product =>{
-    fetch(`http://localhost:5000/bookings/${product._id}`,{
-        method: 'DELETE',
-        headers: {
-
-        }
+  const handleDelete = (product) => {
+    fetch(`https://server-nine-plum.vercel.app/bookings/${product._id}`, {
+      method: "DELETE",
+      headers: {},
     })
-    .then(res => res.json())
-    .then(data => {
-        if(data.deletedCount > 0){
-            refetch()
-            toast.success(`${product?.name} order deleted successfully`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success(`${product?.name} order deleted successfully`);
         }
-    })
-
-  }
+      });
+  };
 
   if (isLoading) {
     return <Spinner></Spinner>;
@@ -72,7 +73,7 @@ const MyOrders = (props) => {
                 <td>{booking.location}</td>
                 <td>
                   {booking.price && !booking.paid && (
-                    <Link >
+                    <Link>
                       <button className="btn border-none hover:bg-green-500 bg-blue-500 btn-sm text-white">
                         Pay
                       </button>

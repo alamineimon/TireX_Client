@@ -47,7 +47,7 @@ const AddProduct = () => {
           console.log(product);
 
           // save the product to the mongodb
-          fetch("http://localhost:5000/myservices", {
+          fetch("https://server-nine-plum.vercel.app/myservices", {
             method: "POST",
             headers: {
               "content-type": "application/json",

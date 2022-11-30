@@ -29,7 +29,7 @@ const BookingModal = ({ bikeinfo, refetch }) => {
       location,
       mobile,
     };
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://server-nine-plum.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

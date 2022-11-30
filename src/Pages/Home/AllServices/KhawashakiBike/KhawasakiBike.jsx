@@ -15,13 +15,13 @@ const KhawasakiBike = (props) => {
   } = useQuery({
     queryKey: ["kawasakiBike"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/kawasaki`);
+      const res = await fetch(`https://server-nine-plum.vercel.app/kawasaki`);
       const data = res.json();
       return data;
     },
   });
   if (isLoading) {
-    return <Spinner></Spinner>
+    return <Spinner></Spinner>;
   }
   return (
     <div className="lg:flex my-2 lg:w-full sm:block">
@@ -39,4 +39,4 @@ const KhawasakiBike = (props) => {
   );
 };
 
-export default KhawasakiBike
+export default KhawasakiBike;

@@ -15,13 +15,13 @@ function YamahaBike(props) {
   } = useQuery({
     queryKey: ["yamahaBike"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/yamaha`);
+      const res = await fetch(`https://server-nine-plum.vercel.app/yamaha`);
       const data = res.json();
       return data;
     },
   });
   if (isLoading) {
-    return <Spinner></Spinner>
+    return <Spinner></Spinner>;
   }
   return (
     <div className="lg:flex my-2 lg:w-full sm:block">

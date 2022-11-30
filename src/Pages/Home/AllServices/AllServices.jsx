@@ -7,9 +7,8 @@ import BookingModal from "../../Modal/BookingModal/BokkingModal";
 import Service from "./Service";
 
 const AllServices = () => {
+  const [bikeInfo, setBikeInfo] = useState(null);
 
-  const [ bikeInfo, setBikeInfo ] = useState(null)
-  
   const {
     data: services = [],
     refetch,
@@ -17,14 +16,14 @@ const AllServices = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/services");
+      const res = await fetch("https://server-nine-plum.vercel.app/services");
       const data = res.json();
       return data;
     },
   });
   if (isLoading) {
-  return <Spinner></Spinner>
-}
+    return <Spinner></Spinner>;
+  }
   return (
     <div className="lg:flex my-2 sm:block">
       {/* menu item */}
@@ -52,7 +51,7 @@ const AllServices = () => {
       {/* card items */}
       <div className="lg:flex my-2 lg:w-5/6 sm:block">
         <div className="grid md:grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
-          {services.map((service) => ( 
+          {services.map((service) => (
             <Service
               key={service._id}
               service={service}

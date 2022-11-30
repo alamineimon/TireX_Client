@@ -9,16 +9,13 @@ const Register = (props) => {
   const { register, handleSubmit } = useForm();
   const [signupError, setSignupError] = useState("");
   const [data, setData] = useState("");
-     const location = useLocation();
-     const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-     const from = location.state?.from?.pathname || "/";
-  
+  const from = location.state?.from?.pathname || "/";
 
-   
-    //  https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-alamineimon.git
+  //  https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-alamineimon.git
 
-  
   const handleRegister = (data) => {
     setSignupError("");
     createUser(data.email, data.password)
@@ -28,7 +25,6 @@ const Register = (props) => {
         toast("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
-
         };
         updateUser(userInfo)
           .then(() => {
@@ -44,7 +40,7 @@ const Register = (props) => {
 
   const saveUser = (name, email, type) => {
     const user = { name, email, type };
-    fetch("http://localhost:5000/users", {
+    fetch("https://server-nine-plum.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,7 +50,7 @@ const Register = (props) => {
       .then((res) => res.json())
       .then((data) => {
         console.log("save user ", data);
-        toast('User Create Successfully')
+        toast("User Create Successfully");
         navigate(from, { replace: true });
         // setCreateUserEmail(email);
       });
@@ -102,16 +98,17 @@ const Register = (props) => {
               <p className="text-red-400">{errors.email?.message}</p>
             )} */}
           </div>
-          
+
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Type</span>
             </label>
             <select
               {...register("type")}
-              className="select select-bordered w-full max-w-xs">
-              <option value='user'>Buyer</option>
-              <option value='seller'>Seller</option>
+              className="select select-bordered w-full max-w-xs"
+            >
+              <option value="user">Buyer</option>
+              <option value="seller">Seller</option>
             </select>
           </div>
           <div className="form-control w-full">
