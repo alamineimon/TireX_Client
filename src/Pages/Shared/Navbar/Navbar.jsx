@@ -75,7 +75,7 @@ const Navbar = (props) => {
             {menuItems}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">
+        <Link to='/' className="btn btn-ghost normal-case text-xl">
           <p className="text-4xl">
             T<span>ire</span>X
           </p>

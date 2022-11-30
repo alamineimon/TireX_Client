@@ -72,7 +72,7 @@ const MyOrders = (props) => {
                 <td>{booking.location}</td>
                 <td>
                   {booking.price && !booking.paid && (
-                    <Link>
+                    <Link >
                       <button className="btn border-none hover:bg-green-500 bg-blue-500 btn-sm text-white">
                         Pay
                       </button>

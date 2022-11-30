@@ -54,72 +54,17 @@ const Register = (props) => {
       .then((res) => res.json())
       .then((data) => {
         console.log("save user ", data);
-        navigate("/");
+        toast('User Create Successfully')
+        navigate(from, { replace: true });
         // setCreateUserEmail(email);
       });
   };
 
-  // const handleRegister = (data) => {
-  //   const image = data.image[0];
-  //   const formData = new FormData();
-  //   formData.append("image", image);
-  //   const url = `https://api.imgbb.com/1/upload?key=8ab0829af0fdf06d333782b540e01bbb`;
-  //   fetch(url, {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((imagData) => {
-  //       if (imagData.success) {
-  //         const user = {
-  //           name: data.name,
-  //           email: data.email,
-  //           role: data.role,
-  //           image: imagData.data.display_url,
-  //         };
-  //         //save doctor info to database
-  //         fetch(`http://localhost:5000/users`, {
-  //           method: "POST",
-  //           headers: {
-  //             "content-type": "application/json",
-  //             // authorization: `bearer ${localStorage.getItem(
-  //             //   "accessToken"
-  //             // )}`,
-  //           },
-  //           body: JSON.stringify(user),
-  //         })
-  //           .then((res) => res.json())
-  //           .then((result) => {
-  //             console.log(result);
-  //             toast.success(`User created successfully`);
-  //           });
-  //       }
-  //     });
-  // };
-
-  // const handleRegister = (data) => {
-  //       createUser(data.email, data.password)
-  //         .then((result) => {
-  //           const user = result.user;
-  //           console.log(user);
-  //           toast("User created successfully");
-  //           const userInfo = {
-  //             displayName: data.name,
-  //           };
-  //           updateUserProfile(userInfo)
-  //             .then(() => {
-  //               navigate('/');
-  //             })
-  //             .catch((err) => console.log(err));
-  //         })
-  //         .catch((err) => {
-  //           console.error(err);
-  //         });
-  // };
-
   const handleGoogleSignIn = () => {
     signInWithGoogle().then((result) => {
       console.log(result.user);
+      toast("User Login Successfully");
+      navigate(from, { replace: true });
     });
   };
   return (

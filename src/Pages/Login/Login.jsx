@@ -18,8 +18,8 @@ const Login = (props) => {
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
+        toast('User login successfully')
         navigate(from, { replace: true });
-        toast("User login successfully");
         // console.log(user);
         // setLoginUserEmail(data.email);
       })
@@ -32,6 +32,8 @@ const Login = (props) => {
     const handleGoogleSignIn = () => {
       signInWithGoogle().then((result) => {
         console.log(result.user);
+        toast('User Login Successfully')
+        navigate(from, { replace: true });
       });
     };
   return (

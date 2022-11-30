@@ -52,7 +52,7 @@ const AllServices = () => {
       {/* card items */}
       <div className="lg:flex my-2 lg:w-5/6 sm:block">
         <div className="grid md:grid-cols-1 gap-5 mx-auto lg:grid-cols-3">
-          {services.map((service) => (
+          {services.map((service) => ( 
             <Service
               key={service._id}
               service={service}

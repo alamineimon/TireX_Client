@@ -5,6 +5,7 @@ import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import ManageUser from "../../Pages/Dashboard/ManageUser/ManageUser";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 import AllServices from "../../Pages/Home/AllServices/AllServices";
 import KhawasakiBike from "../../Pages/Home/AllServices/KhawashakiBike/KhawasakiBike";
 import KtmBike from "../../Pages/Home/AllServices/KtmBike/KtmBike";
@@ -95,8 +96,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/myproducts",
-        element: <MyProducts></MyProducts>
+        element: <MyProducts></MyProducts>,
       },
+      // {
+      //   path: "/dashboard/payment/:id",
+      //   element: <Payment />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/bookings/${params.id}`),
+      // },
     ],
   },
 ]);
