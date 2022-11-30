@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### website Name: TireX
 
 ### Live website link- 
-     
+     https://tirex-b150d.web.app/
     
 ```
     What is used in this website-
